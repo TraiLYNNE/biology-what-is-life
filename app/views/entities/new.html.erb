@@ -1,1 +1,52 @@
+<%= form_for(@entity) do |f| %>
+  <!-- errors  -->
+  <% if @entity.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@entity.errors.count, "error") %> prohibited the creation of this page:
+      </h2>
 
+      <ul>
+        <% @entity.errors.full_messages.each do |m| %>
+          <li><%= m %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+
+  <%= f.fields_for :properties do |props| %>
+    <%= props.check_box :organization %>
+    <%= props.label :organization %>
+    <br>
+
+    <%= props.check_box :metabolism %>
+    <%= props.label :metabolism %>
+    </br>
+
+    <%= props.check_box :homeostasis %>
+    <%= props.label :homeostasis %>
+    </br>
+
+    <%= props.check_box :growth %>
+    <%= props.label :growth %>
+    </br>
+
+    <%= props.check_box :reproduction %>
+    <%= props.label :reproduction %>
+    </br>
+
+    <%= props.check_box :response %>
+    <%= props.label :response %>
+    </br>
+
+    <%= props.check_box :evolution %>
+    <%= props.label :evolution %>
+    </br>
+  <% end %>
+
+  <%= f.submit 'Evaluate Entity' %>
+<% end %>
