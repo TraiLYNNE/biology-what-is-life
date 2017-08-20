@@ -18,7 +18,7 @@
   <%= f.text_field :name %>
   <br>
 
-  <%= f.fields_for :properties do |props| %>
+  <%= f.fields_for :property_list do |props| %>
     <%= props.check_box :organization %>
     <%= props.label :organization %>
     <br>
