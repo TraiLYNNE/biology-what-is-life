@@ -2,6 +2,7 @@ class EntitiesController < ApplicationController
   before_action :set_entity, except: [:index, :new, :create]
 
   def index
+    @entities = Entity.all
   end
 
   def show
