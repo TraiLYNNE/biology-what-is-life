@@ -14,11 +14,12 @@
     </div>
   <% end %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
+  <div class='field'>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
 
-  <%= f.fields_for :property_list do |props| %>
+  <%= f.fields_for :property_lists do |props| %>
     <%= props.check_box :organization %>
     <%= props.label :organization %>
     <br>
