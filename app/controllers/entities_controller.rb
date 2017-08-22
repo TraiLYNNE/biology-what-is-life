@@ -10,9 +10,17 @@ class EntitiesController < ApplicationController
 
   def new
     @entity = Entity.new
+    @entity.build_property_list
   end
 
   def create
+    @entity = Entity.new(entity_params)
+    if @entity.valid?
+      # @entity.save
+      binding.pry
+    else
+      render :new
+    end
   end
 
   def edit
